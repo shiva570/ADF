@@ -1,0 +1,6 @@
+{
+	"name": "azureblob to sql",
+	"properties": {
+		"annotations": []
+	}
+}
