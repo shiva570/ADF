@@ -9,7 +9,7 @@
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://testrestapishiva.azurewebsites.net/api/customer",
+			"url": "https://testrestapishiva.azurewebsites.net",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
