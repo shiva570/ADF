@@ -1,11 +1,6 @@
 {
 	"name": "CustomerAPI",
 	"properties": {
-		"parameters": {
-			"customerName": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
