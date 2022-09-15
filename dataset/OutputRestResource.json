@@ -3,15 +3,7 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "CustomerAPI",
-			"type": "LinkedServiceReference",
-			"parameters": {
-				"customerName": "test"
-			}
-		},
-		"parameters": {
-			"CustomerName": {
-				"type": "string"
-			}
+			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "RestResource",
