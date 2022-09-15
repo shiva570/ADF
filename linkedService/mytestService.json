@@ -1,0 +1,17 @@
+{
+	"name": "mytestService",
+	"properties": {
+		"parameters": {
+			"CustomerName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://testrestapishiva.azurewebsites.net/api/customer",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
