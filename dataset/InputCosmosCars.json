@@ -1,0 +1,25 @@
+{
+	"name": "InputCosmosCars",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CosmosDb1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "CosmosDbSqlApiCollection",
+		"schema": {
+			"type": "object",
+			"properties": {
+				"Id": {
+					"type": "string"
+				},
+				"Make": {
+					"type": "string"
+				}
+			}
+		},
+		"typeProperties": {
+			"collectionName": "cars"
+		}
+	}
+}
