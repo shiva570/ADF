@@ -16,19 +16,15 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
-							"recursive": true,
-							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
+						"type": "CosmosDbSqlApiSource",
+						"preferredRegions": []
 					},
 					"sink": {
-						"type": "CosmosDbSqlApiSink",
-						"writeBehavior": "insert"
+						"type": "JsonSink",
+						"formatSettings": {
+							"type": "JsonWriteSettings",
+							"filePattern": "setOfObjects"
+						}
 					},
 					"enableStaging": false,
 					"translator": {
@@ -36,20 +32,50 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "Id",
-									"type": "String"
+									"path": "$['Id']"
 								},
 								"sink": {
-									"path": "Id"
+									"path": "$['Id']"
 								}
 							},
 							{
 								"source": {
-									"name": "Make",
-									"type": "String"
+									"path": "$['_rid']"
 								},
 								"sink": {
-									"path": "Make"
+									"path": "$['_rid']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['_self']"
+								},
+								"sink": {
+									"path": "$['_self']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['_etag']"
+								},
+								"sink": {
+									"path": "$['_etag']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['_attachments']"
+								},
+								"sink": {
+									"path": "$['_attachments']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['_ts']"
+								},
+								"sink": {
+									"path": "$['_ts']"
 								}
 							}
 						]
@@ -57,13 +83,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Input",
+						"referenceName": "InputCosmosCars",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "output",
+						"referenceName": "outputJson",
 						"type": "DatasetReference"
 					}
 				]
