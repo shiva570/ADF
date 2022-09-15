@@ -1,0 +1,18 @@
+{
+	"name": "RestResource1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CustomerAPI",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"customerName": "test"
+			}
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "api/customer"
+		},
+		"schema": []
+	}
+}
