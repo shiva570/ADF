@@ -1,5 +1,5 @@
 {
-	"name": "RestResource1",
+	"name": "OutputRestResource",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "CustomerAPI",
