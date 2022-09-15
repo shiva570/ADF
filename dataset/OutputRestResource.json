@@ -8,6 +8,11 @@
 				"customerName": "test"
 			}
 		},
+		"parameters": {
+			"CustomerName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "RestResource",
 		"typeProperties": {
