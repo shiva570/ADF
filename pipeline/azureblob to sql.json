@@ -21,11 +21,7 @@
 					},
 					"sink": {
 						"type": "RestSink",
-						"httpRequestTimeout": "00:01:40",
-						"requestInterval": 10,
-						"requestMethod": "POST",
-						"writeBatchSize": 10000,
-						"httpCompressionType": "none"
+						"writeBehavior": "insert"
 					},
 					"enableStaging": false,
 					"translator": {
@@ -50,7 +46,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "OutputRestResource",
+						"referenceName": "InputCosmosCars",
 						"type": "DatasetReference"
 					}
 				]
