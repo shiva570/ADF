@@ -11,6 +11,12 @@
 		"CosmosDb1_connectionString": {
 			"value": ""
 		},
+		"CosmosDbCollections_connectionString": {
+			"value": ""
+		},
+		"CustomerAPI_properties_typeProperties_url": {
+			"value": "https://testrestapishiva.azurewebsites.net"
+		},
 		"containerUri": {
 			"value": ""
 		},
