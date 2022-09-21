@@ -79,12 +79,8 @@
 							"typeProperties": {
 								"source": {
 									"type": "CosmosDbSqlApiSource",
-									"preferredRegions": [],
-									"pageSize": {
-										"value": "@select * from c where c.country_id = item().Id.",
-										"type": "Expression"
-									},
-									"detectDatetime": true
+									"query": " select * from c where c.country_id = 1",
+									"preferredRegions": []
 								},
 								"sink": {
 									"type": "JsonSink",
