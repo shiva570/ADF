@@ -17,7 +17,9 @@
 				"typeProperties": {
 					"source": {
 						"type": "CosmosDbSqlApiSource",
-						"preferredRegions": []
+						"query": "select c.Id,c.name from c where c.Id = 1 or c.Id = 2",
+						"preferredRegions": [],
+						"detectDatetime": true
 					},
 					"dataset": {
 						"referenceName": "InputCollections",
@@ -26,7 +28,8 @@
 							"DbName": "CountriesDatabase",
 							"CollectionName": "countries"
 						}
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
@@ -49,13 +52,71 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Wait1",
-							"type": "Wait",
+							"name": "SetVariableName",
+							"type": "SetVariable",
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
-								"waitTimeInSeconds": 1
+								"variableName": "Name",
+								"value": {
+									"value": "@item().name",
+									"type": "Expression"
+								}
 							}
+						},
+						{
+							"name": "Copy data1",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "CosmosDbSqlApiSource",
+									"preferredRegions": [],
+									"pageSize": {
+										"value": "@select * from c where c.country_id = item().Id.",
+										"type": "Expression"
+									},
+									"detectDatetime": true
+								},
+								"sink": {
+									"type": "JsonSink",
+									"storeSettings": {
+										"type": "AzureBlobStorageWriteSettings"
+									},
+									"formatSettings": {
+										"type": "JsonWriteSettings",
+										"filePattern": "setOfObjects"
+									}
+								},
+								"enableStaging": false
+							},
+							"inputs": [
+								{
+									"referenceName": "InputCollections",
+									"type": "DatasetReference",
+									"parameters": {
+										"DbName": "StatesDatabae",
+										"CollectionName": "States"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "Json1",
+									"type": "DatasetReference",
+									"parameters": {
+										"fileName": "test.json"
+									}
+								}
+							]
 						}
 					]
 				}
