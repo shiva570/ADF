@@ -1,0 +1,42 @@
+{
+	"name": "InputCollections",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CosmosDbCollections",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"databaseName": {
+					"value": "@dataset().DbName",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"DbName": {
+				"type": "String"
+			},
+			"CollectionName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "CosmosDbSqlApiCollection",
+		"schema": {
+			"type": "object",
+			"properties": {
+				"Id": {
+					"type": "string"
+				},
+				"Make": {
+					"type": "string"
+				}
+			}
+		},
+		"typeProperties": {
+			"collectionName": {
+				"value": "@dataset().CollectionName",
+				"type": "Expression"
+			}
+		}
+	}
+}
